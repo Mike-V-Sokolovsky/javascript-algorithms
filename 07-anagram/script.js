@@ -9,10 +9,19 @@
 */
 
 function anagram(str1, str2) {
-    // Напишите код здесь
-}
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    str1 = str1.split('').sort().join('');
+    str2 = str2.split('').sort().join('');
+    return str1 === str2;
+}    
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
 console.log(anagram('finder', 'Friend')); // true
 console.log(anagram('hello', 'bye')); // false
+
+// Я проверил с аргументами up и UP, функция возвращает true, но почему-то для автотеста это "не то значение"(((
